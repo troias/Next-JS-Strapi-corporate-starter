@@ -51,7 +51,8 @@
         "sections.featured-images-row",
         "sections.featured-contact-section",
         "sections.product-card-group",
-        "sections.career-content-group"
+        "sections.career-content-group",
+        "sections.featured-team-group"
       ],
       "pluginOptions": {
         "i18n": {

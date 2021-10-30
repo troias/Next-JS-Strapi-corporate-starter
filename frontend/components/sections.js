@@ -9,6 +9,7 @@ import FeatureImage from "@/components/sections/feature-image-group"
 import FeatureContactGroup from "@/components/sections/feature-contact-group"
 import FeaturedPriceGroup from "@/components/sections/featured-price-group"
 import CareerContentGroup from "@/components/sections/career-content-group"
+import TeamFeatureGroup from "@/components/sections/team-feature-group"
 import RichText from "./sections/rich-text"
 import Pricing from "./sections/pricing"
 import LeadForm from "./sections/lead-form"
@@ -28,6 +29,7 @@ const sectionComponents = {
   "sections.featured-contact-section": FeatureContactGroup,
   'sections.product-card-group': FeaturedPriceGroup, 
   "sections.career-content-group": CareerContentGroup, 
+  "sections.team-feature-group": TeamFeatureGroup
 }
 
 // Display a section individually
