@@ -4,6 +4,7 @@ import ButtonLink from "../elements/button-link"
 import NextImage from "../elements/image"
 
 const Hero = ({ data }) => {
+  console.log(data.buttons)
   return (
     <main className="container flex flex-col md:flex-row items-center justify-between py-12">
       {/* Left column for content */}
@@ -15,7 +16,7 @@ const Hero = ({ data }) => {
         {/* Description paragraph */}
         <p className="text-xl mb-6">{data.description}</p>
         {/* Buttons row */}
-        <div className="flex flex-row flex-wrap gap-4">
+        <div className="flex flex-row flex-wrap gap-4 ">
           {data.buttons.map((button) => (
             <ButtonLink
               button={button}

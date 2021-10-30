@@ -8,6 +8,8 @@ const TestimonialsGroup = ({ data }) => {
   const [selectedTestimonialIndex, setSelectedTestimonialIndex] = useState(0)
   const selectedTestimonial = data.testimonials[selectedTestimonialIndex]
 
+  // console.log("selectedTestimonial", selectedTestimonial)
+
   return (
     <section className="text-center text-lg bg-gray-200 pt-12 pb-16">
       <h2 className="title mb-4">{data.title}</h2>
@@ -24,11 +26,11 @@ const TestimonialsGroup = ({ data }) => {
         </div>
         <div className="px-4 py-4 sm:px-12 sm:pt-12 sm:pb-4 flex flex-col justify-between">
           <div>
-            <NextImage
+            {/* <NextImage
               width="120"
               height="33"
               media={selectedTestimonial.logo}
-            />
+            /> */}
             <p className="italic mb-6">
               &quot;{selectedTestimonial.text}&quot;
             </p>
@@ -73,11 +75,11 @@ const TestimonialsGroup = ({ data }) => {
         </div>
       )}
       {/* Logos list */}
-      <div className="flex flex-row flex-wrap items-center gap-6 sm:gap-20 justify-center mt-10 px-6 sm:px-0 ">
+      {/* <div className="flex flex-row flex-wrap items-center gap-6 sm:gap-20 justify-center mt-10 px-6 sm:px-0 ">
         {data.logos.map((logo) => (
           <NextImage key={logo.id} width="120" height="33" media={logo.logo} />
         ))}
-      </div>
+      </div> */}
     </section>
   )
 }

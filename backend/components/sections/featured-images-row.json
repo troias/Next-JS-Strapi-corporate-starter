@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_featured_images_rows",
+  "info": {
+    "name": "FeaturedImagesRow",
+    "icon": "arrow-down",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.content"
+    }
+  }
+}

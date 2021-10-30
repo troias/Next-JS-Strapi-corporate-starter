@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 import { MdClose, MdChevronRight } from "react-icons/md"
 import { mediaPropTypes, linkPropTypes, buttonLinkPropTypes } from "utils/types"
+import {useRouter} from 'next/router'
 import { useLockBodyScroll } from "utils/hooks"
 import { getButtonAppearance } from "utils/button"
 import ButtonLink from "./button-link"
@@ -8,9 +9,13 @@ import NextImage from "./image"
 import CustomLink from "./custom-link"
 
 const MobileNavMenu = ({ navbar, closeSelf }) => {
+  const router = useRouter()
   // Prevent window scroll while mobile nav menu is open
   useLockBodyScroll()
 
+  const closeHandler = () => {
+    closeSelf
+  }
   return (
     <div className="w-screen h-screen fixed top-0 left-0 overflow-y-scroll bg-white z-10 pb-6">
       <div className="container h-full flex flex-col justify-between">
@@ -38,6 +43,7 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
             ))}
           </ul>
           <ButtonLink
+            onClick={closeHandler}
             button={navbar.button}
             appearance={getButtonAppearance(navbar.button.type, "light")}
           />

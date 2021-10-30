@@ -19,7 +19,7 @@ const Navbar = ({ navbar, pageContext }) => {
   return (
     <>
       {/* The actual navbar */}
-      <nav className="border-gray-200 border-b-2 py-6 sm:py-2">
+      <nav className="border-gray-200 border-b-2 py-6 sm:py-2 bg-white">
         <div className="container flex flex-row items-center justify-between">
           {/* Content aligned to the left */}
           <div className="flex flex-row items-center">
@@ -33,7 +33,7 @@ const Navbar = ({ navbar, pageContext }) => {
               {navbar.links.map((navLink) => (
                 <li key={navLink.id}>
                   <CustomLink link={navLink} locale={router.locale}>
-                    <div className="hover:text-gray-900 px-2 py-1">
+                    <div className="hover:text-white px-2 py-1">
                       {navLink.text}
                     </div>
                   </CustomLink>
@@ -57,7 +57,7 @@ const Navbar = ({ navbar, pageContext }) => {
             </button>
             {/* CTA button on desktop */}
             {navbar.button && (
-              <div className="hidden md:block">
+              <div className="hidden md:block ">
                 <ButtonLink
                   button={navbar.button}
                   appearance={getButtonAppearance(navbar.button.type, "light")}

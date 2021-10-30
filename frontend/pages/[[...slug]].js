@@ -12,7 +12,7 @@ import { getLocalizedPaths } from "utils/localize"
 
 const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
   const router = useRouter()
-
+  // console.log("sections", sections)
   // Check if the required data was provided
   if (!router.isFallback && !sections?.length) {
     return <ErrorPage statusCode={404} />
@@ -40,7 +40,9 @@ export async function getStaticPaths(context) {
     return localePages
   })
 
+  
   const pages = await (await Promise.all(allPages)).flat()
+  // console.log("allPages", pages)
 
   const paths = pages.map((page) => {
     // Decompose the slug that was saved in Strapi
@@ -58,7 +60,7 @@ export async function getStaticPaths(context) {
 
 export async function getStaticProps(context) {
   const { params, locale, locales, defaultLocale, preview = null } = context
-
+  
   const globalLocale = await getGlobalData(locale)
   // Fetch pages. Include drafts if preview mode is on
   const pageData = await getPageData(

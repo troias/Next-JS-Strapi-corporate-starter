@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_sections_career_content_groups",
+  "info": {
+    "name": "CareerContentGroup",
+    "icon": "ambulance",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "bannerImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "mainTitle": {
+      "type": "string"
+    },
+    "secondaryTitle": {
+      "type": "string"
+    },
+    "aboutUs": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.image"
+    },
+    "lowerTitle": {
+      "type": "string"
+    },
+    "applyNowButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links.button"
+    },
+    "lowerImg": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.image"
+    },
+    "vaccanciesTitle": {
+      "type": "string"
+    },
+    "vacanciesContent": {
+      "type": "string"
+    }
+  }
+}

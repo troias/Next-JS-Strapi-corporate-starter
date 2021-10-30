@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_featured_contact_sections",
+  "info": {
+    "name": "FeaturedContactSection",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "mainTitle": {
+      "type": "string"
+    },
+    "contactCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "contact-card.contact-card"
+    },
+    "socialCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "social-card.social-card"
+    }
+  }
+}

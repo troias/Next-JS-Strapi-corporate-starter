@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_product_price_group_product_price_groups",
+  "info": {
+    "name": "ProductPriceGroup",
+    "icon": "glass-martini"
+  },
+  "options": {},
+  "attributes": {
+    "productTitle": {
+      "type": "string"
+    },
+    "productPriceCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product-price-card.product-price-card"
+    }
+  }
+}

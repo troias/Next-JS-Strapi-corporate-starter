@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_product_price_card_product_price_cards",
+  "info": {
+    "name": "productPriceCard",
+    "icon": "coffee"
+  },
+  "options": {},
+  "attributes": {
+    "ProductPriceCardTitle": {
+      "type": "string"
+    },
+    "productDescription": {
+      "type": "richtext"
+    }
+  }
+}
