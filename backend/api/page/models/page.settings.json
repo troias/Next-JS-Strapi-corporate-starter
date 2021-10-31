@@ -52,7 +52,10 @@
         "sections.featured-contact-section",
         "sections.product-card-group",
         "sections.career-content-group",
-        "sections.featured-team-group"
+        "sections.featured-team-group",
+        "sections.featured-sales-group",
+        "sections.featured-location-group",
+        "sections.social-media-feature-group"
       ],
       "pluginOptions": {
         "i18n": {

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_social_media_feature_groups",
+  "info": {
+    "name": "SocialMediaFeatureGroup",
+    "icon": "assistive-listening-systems"
+  },
+  "options": {},
+  "attributes": {
+    "mainTitle": {
+      "type": "string"
+    }
+  }
+}

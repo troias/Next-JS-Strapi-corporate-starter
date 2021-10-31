@@ -25,8 +25,17 @@
       "required": false,
       "pluginOptions": {}
     },
-    "content": {
-      "type": "richtext"
+    "nameTitle": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "hobbiesTitlte": {
+      "type": "string"
+    },
+    "hobbies": {
+      "type": "text"
     }
   }
 }

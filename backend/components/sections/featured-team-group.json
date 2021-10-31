@@ -2,7 +2,8 @@
   "collectionName": "components_sections_featured_team_groups",
   "info": {
     "name": "FeaturedTeamGroup",
-    "icon": "allergies"
+    "icon": "allergies",
+    "description": ""
   },
   "options": {},
   "attributes": {

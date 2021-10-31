@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_featured_location_groups",
+  "info": {
+    "name": "FeaturedLocationGroup",
+    "icon": "angle-double-left"
+  },
+  "options": {},
+  "attributes": {
+    "mainTitle": {
+      "type": "string"
+    }
+  }
+}
