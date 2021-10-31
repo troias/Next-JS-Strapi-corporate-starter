@@ -6,6 +6,7 @@ import { useRouter } from "next/router"
 import Layout from "@/components/layout"
 import { getLocalizedPaths } from "utils/localize"
 
+
 // The file is called [[...slug]].js because we're using Next's
 // optional catch all routes feature. See the related docs:
 // https://nextjs.org/docs/routing/dynamic-routes#optional-catch-all-routes
@@ -73,6 +74,12 @@ export async function getStaticProps(context) {
     // Giving the page no props will trigger a 404 page
     return { props: {} }
   }
+
+  // const server = 'http://localhost:3000'
+  // const req = await fetch(`${server}/api/social-media-api`)
+  // const res = await req.json()
+  // console.log("instagram-posts", res)
+
 
   // We have the required page data, pass it to the page component
   const { contentSections, metadata, localizations, slug } = pageData

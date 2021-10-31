@@ -1,7 +1,7 @@
 import NextImage from '../elements/image'
 
 const TeamFeatureGroup = ({ data }) => {
-    console.log("TeamFeatureGroup", data)
+    // console.log("TeamFeatureGroup", data)
 
     return (
         <div className="container flex-col ">

@@ -2,7 +2,7 @@
 
 const FeaturedLocationGroup = ({data}) => {
 
-    console.log("FeaturedLocationData", data)
+    // console.log("FeaturedLocationData", data)
 
     return (
         <div className="flex-col ">

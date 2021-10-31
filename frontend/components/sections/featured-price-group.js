@@ -4,7 +4,7 @@ import NextImage from "../elements/image"
 import Markdown from "react-markdown"
 
 const FeaturedPriceGroup = ({ data }) => {
-    console.log("FeaturedPriceGroup", data)
+    // console.log("FeaturedPriceGroup", data)
     return (
         <div className="container flex flex-col" >
             <div className="mt-10 mb-10 self-center font-bold">
@@ -14,7 +14,7 @@ const FeaturedPriceGroup = ({ data }) => {
             <div className="flex flex-col py-4 sm:flex-row gap-4 flex-wrap m-auto">
 
                 {data.productCard.map((product) => {
-                    console.log("product.productImage", product.productImage)
+                    // console.log("product.productImage", product.productImage)
                     return (
                         <div className="container flex flex-col justify-center  sm:flex-row ">
                             <div className="w-56  self-center">

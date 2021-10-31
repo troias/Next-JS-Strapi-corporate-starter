@@ -4,7 +4,7 @@ import ButtonLink from "../elements/button-link"
 import NextImage from "../elements/image"
 
 const Hero = ({ data }) => {
-  console.log(data.buttons)
+  // console.log(data.buttons)
   return (
     <main className="container flex flex-col md:flex-row items-center justify-between py-12">
       {/* Left column for content */}

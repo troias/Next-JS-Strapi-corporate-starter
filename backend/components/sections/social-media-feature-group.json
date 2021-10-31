@@ -2,12 +2,18 @@
   "collectionName": "components_sections_social_media_feature_groups",
   "info": {
     "name": "SocialMediaFeatureGroup",
-    "icon": "assistive-listening-systems"
+    "icon": "assistive-listening-systems",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "mainTitle": {
       "type": "string"
+    },
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.image"
     }
   }
 }

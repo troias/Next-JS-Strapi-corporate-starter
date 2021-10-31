@@ -3,7 +3,7 @@ import NextImage from "../elements/image"
 import Markdown from "react-markdown"
 
 const FeatureContactGroup = ({ data }) => {
-    console.log("featureContactGroup", data)
+    // console.log("featureContactGroup", data)
 
     return (
 

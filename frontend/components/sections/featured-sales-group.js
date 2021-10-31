@@ -2,7 +2,7 @@ import NextImage from '../elements/image'
 
 const FeaturedSalesGroup = ({ data }) => {
 
-    console.log("FeaturedSalesGroup", data)
+    // console.log("FeaturedSalesGroup", data)
 
     return (
         <div className="container flex-col">
