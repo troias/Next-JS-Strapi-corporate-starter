@@ -173,12 +173,12 @@ const EmailContactForm = ({ data }) => {
                 ))}
               </Form>
 
-              <p className=" flex-col text-red-500 h-12 text-sm mt-1 ml-2 text-left ">
+              <div className=" flex-col text-red-500 h-12 text-sm mt-1 ml-2 text-left ">
                 <p> {(errors.email && touched.email && errors.email) || errors.api} </p>
                 <p> {(errors.mobile && touched.mobile && errors.mobile) || errors.api} </p>
                 <p> {(errors.name && touched.name && errors.name) || errors.api}   </p>
                 <p>  {(errors.message && touched.message && errors.message) || errors.api}  </p>
-              </p>
+                  </div>
             </div>
           )}
         </Formik>
