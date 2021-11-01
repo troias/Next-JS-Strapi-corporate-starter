@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_sections_email_contact_forms",
+  "info": {
+    "name": "EmailContactForm",
+    "icon": "angle-double-down",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "emailPlaceholder": {
+      "type": "string"
+    },
+    "submitButton": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.button"
+    },
+    "namePlaceholder": {
+      "type": "string"
+    },
+    "nameTitle": {
+      "type": "string"
+    },
+    "mobilePlaceholder": {
+      "type": "string"
+    },
+    "mobileTitle": {
+      "type": "string"
+    },
+    "messagePlaceholder": {
+      "type": "text"
+    },
+    "messageTitle": {
+      "type": "string"
+    },
+    "emailTitle": {
+      "type": "string"
+    }
+  }
+}

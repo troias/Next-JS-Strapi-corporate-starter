@@ -13,6 +13,8 @@ import TeamFeatureGroup from "@/components/sections/team-feature-group"
 import FeaturedSalesGroup from "@/components/sections/featured-sales-group"
 import FeaturedLocationGroup from "@/components/sections/featured-location-group"
 import FeaturedSocialMediaGroup from "@/components/sections/featured-social-media-group"
+import FeaturedEmailContactGroup from "@/components/sections/featured-email-contact-group"
+import EmailContactForm from "@/components/sections/email-contact-form"
 import RichText from "./sections/rich-text"
 import Pricing from "./sections/pricing"
 import LeadForm from "./sections/lead-form"
@@ -36,6 +38,8 @@ const sectionComponents = {
   "sections.featured-sales-group": FeaturedSalesGroup, 
   "sections.featured-location-group": FeaturedLocationGroup,
   "sections.social-media-feature-group": FeaturedSocialMediaGroup,
+  "sections.featured-email-contact-group": FeaturedEmailContactGroup,
+  "sections.email-contact-form": EmailContactForm
 }
 
 // Display a section individually

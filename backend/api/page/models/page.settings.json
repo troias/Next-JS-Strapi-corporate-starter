@@ -55,7 +55,9 @@
         "sections.featured-team-group",
         "sections.featured-sales-group",
         "sections.featured-location-group",
-        "sections.social-media-feature-group"
+        "sections.social-media-feature-group",
+        "sections.featured-email-contact-group",
+        "sections.email-contact-form"
       ],
       "pluginOptions": {
         "i18n": {
