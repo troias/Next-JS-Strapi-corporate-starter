@@ -5,6 +5,7 @@ import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
+import Layout from "@/components/layout"
 import "@/styles/index.css"
 
 const MyApp = ({ Component, pageProps }) => {
@@ -56,6 +57,7 @@ MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext)
   const globalLocale = await getGlobalData(appContext.router.locale)
 
+  console.log("appProps", appProps)
   return {
     ...appProps,
     pageProps: {

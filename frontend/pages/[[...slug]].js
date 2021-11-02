@@ -61,7 +61,7 @@ export async function getStaticPaths(context) {
 
 export async function getStaticProps(context) {
   const { params, locale, locales, defaultLocale, preview = null } = context
-  
+    console.log("dynamicPageProps", context )
   const globalLocale = await getGlobalData(locale)
   // Fetch pages. Include drafts if preview mode is on
   const pageData = await getPageData(
@@ -74,11 +74,6 @@ export async function getStaticProps(context) {
     // Giving the page no props will trigger a 404 page
     return { props: {} }
   }
-
-  // const server = 'http://localhost:3000'
-  // const req = await fetch(`${server}/api/social-media-api`)
-  // const res = await req.json()
-  // console.log("instagram-posts", res)
 
 
   // We have the required page data, pass it to the page component

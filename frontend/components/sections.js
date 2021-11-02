@@ -39,7 +39,8 @@ const sectionComponents = {
   "sections.featured-location-group": FeaturedLocationGroup,
   "sections.social-media-feature-group": FeaturedSocialMediaGroup,
   "sections.featured-email-contact-group": FeaturedEmailContactGroup,
-  "sections.email-contact-form": EmailContactForm
+  "sections.email-contact-form": EmailContactForm,
+  
 }
 
 // Display a section individually
