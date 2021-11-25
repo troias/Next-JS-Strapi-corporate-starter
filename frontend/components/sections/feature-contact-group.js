@@ -15,7 +15,7 @@ const FeatureContactGroup = ({ data }) => {
                 {data.contactCard.map(card => {
                     return (
 
-                        <div className="container flex  sm:flex-col mb-10  m-5 shadow  ">
+                        <div key={card.id } className="container flex  sm:flex-col mb-10  m-5 shadow  ">
 
                             <div className="w-10 h-10 mb-10 mr-2 self-center" >
                                 <NextImage media={card.cardIcon} />

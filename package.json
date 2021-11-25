@@ -13,6 +13,9 @@
     "wait-on": "5.2.1"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.12.10",
+    "@googlemaps/react-wrapper": "^1.1.15",
+    "googlemaps": "^1.12.0",
     "instagram-web-api": "^2.2.2",
     "net": "^1.0.2"
   }

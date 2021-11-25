@@ -4,6 +4,7 @@ import Sections from "@/components/sections"
 import Seo from "@/components/elements/seo"
 import { useRouter } from "next/router"
 import Layout from "@/components/layout"
+import React from 'react'
 import { getLocalizedPaths } from "utils/localize"
 
 
