@@ -9,6 +9,6 @@ module.exports = {
     defaultLocale: 'en',
   },
   images: {
-    domains: ["instagram.fakl1-2.fna.fbcdn.net",  ],
+    domains: ["instagram.fakl1-2.fna.fbcdn.net", "localhost", "images.unsplash.com", "instagram.fakl1-4.fna.fbcdn.net" ],
   },
 }
