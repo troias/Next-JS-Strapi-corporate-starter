@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_login_forms",
+  "info": {
+    "name": "loginForm",
+    "icon": "file-invoice"
+  },
+  "options": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "password": {
+      "type": "password"
+    }
+  }
+}

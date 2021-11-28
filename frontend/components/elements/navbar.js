@@ -66,11 +66,11 @@ const Navbar = ({ navbar, pageContext }) => {
               </div>
             )}
             {/* Locale Switch Desktop */}
-            {pageContext.localizedPaths && (
+            {/* {pageContext.localizedPaths && (
               <div className="hidden md:block">
                 <LocaleSwitch pageContext={pageContext} />
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </nav>

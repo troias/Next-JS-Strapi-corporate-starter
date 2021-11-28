@@ -14,6 +14,8 @@ import FeaturedSalesGroup from "@/components/sections/featured-sales-group"
 import FeaturedLocationGroup from "@/components/sections/featured-location-group"
 import FeaturedSocialMediaGroup from "@/components/sections/featured-social-media-group"
 import FeaturedEmailContactGroup from "@/components/sections/featured-email-contact-group"
+import FeaturedLoginPage from "@/components/sections/featured-login-page"
+import FeaturedSignUpPage from "@/components/sections/featured-sign-up-page"
 import EmailContactForm from "@/components/sections/email-contact-form"
 import RichText from "./sections/rich-text"
 import Pricing from "./sections/pricing"
@@ -40,11 +42,14 @@ const sectionComponents = {
   "sections.social-media-feature-group": FeaturedSocialMediaGroup,
   "sections.featured-email-contact-group": FeaturedEmailContactGroup,
   "sections.email-contact-form": EmailContactForm,
+  "sections.login-form": FeaturedLoginPage,
+  "sections.signupform": FeaturedSignUpPage,
   
 }
 
 // Display a section individually
 const Section = ({ sectionData }) => {
+  // console.log("sectionData", sectionData)
   // Prepare the component
   const SectionComponent = sectionComponents[sectionData.__component]
 

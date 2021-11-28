@@ -2,6 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 import Image from "next/image";
 import Slider from "../ui/slider/slider";
+import AddLocationIcon from '@mui/icons-material/AddLocation';
+import ShareLocationIcon from '@mui/icons-material/ShareLocation';
+import DateRangeIcon from '@mui/icons-material/DateRange';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import InfoIcon from '@mui/icons-material/Info';
+import LanguageIcon from '@mui/icons-material/Language';
+import MyLocationIcon from '@mui/icons-material/MyLocation';
 
 export const formatImgUrl = (url) => {
   return `${process.env.NEXT_PUBLIC_STRAPI_API_URL}` + url;
@@ -70,14 +77,14 @@ const FeaturedLocationGroup = ({ data }) => {
           return (
             <div
               key={index}
-              className="flex-col justify-between m-1 p-1 border-black border rounded-2xl shadow-md"
+              className="flex-col  m-1 p-1 border-black border rounded-2xl shadow-md"
             >
-              <div className="flex flex-wrap justify-around ">
-                <div className="flex-col w-auto">
-                  <div className="flex space-between flex-col ">
+              <div className="flex flex-wrap sm:justify-center">
+                <div className="flex-col mr-20 mt-4 ">
+                  <div className="flex  flex-col ">
                     {location.name && (
                       <div>
-                        <h1 className="font-bold mb-1 mt-2  ml-3">Location</h1>
+                        <h1 className="font-bold mb-1 mt-2  ml-3"><AddLocationIcon/>  Location</h1>
                         <h3 className="text-lg  ml-3">{location.name}</h3>
                       </div>
                     )}
@@ -85,7 +92,7 @@ const FeaturedLocationGroup = ({ data }) => {
                   <div className="flex space-between flex-col">
                     {location.address && (
                       <div>
-                        <h1 className="font-bold mb-1 mt-2  ml-3">Address</h1>
+                        <h1 className="font-bold mb-1 mt-2  ml-3"><ShareLocationIcon/> Address</h1>
                         <h3 className="text-lg  ml-3">{formattedAddress}</h3>
                       </div>
                     )}
@@ -93,7 +100,7 @@ const FeaturedLocationGroup = ({ data }) => {
                   <div className="flex space-between flex-col">
                     {location.date && (
                       <div>
-                        <h1 className="font-bold mb-1 mt-2  ml-3">Date</h1>
+                        <h1 className="font-bold mb-1 mt-2  ml-3"> <DateRangeIcon/>  Date</h1>
                         <h3 className="text-lg  ml-3">{location.date}</h3>
                       </div>
                     )}
@@ -101,7 +108,7 @@ const FeaturedLocationGroup = ({ data }) => {
                   <div className="flex space-between flex-col ">
                     {location.hours && (
                       <div>
-                        <h1 className="font-bold mb-1 mt-2  ml-3">Hours</h1>
+                        <h1 className="font-bold mb-1 mt-2  ml-3"><AccessTimeIcon/> Hours</h1>
                         <h3 className="text-lg  ml-3">{location.hours}</h3>
                       </div>
                     )}
@@ -110,23 +117,23 @@ const FeaturedLocationGroup = ({ data }) => {
                     {location.content && (
                       <div>
                         <h1 className="font-bold mb-1 mt-2  ml-3">
-                          Description
+                        <InfoIcon/>  Description
                         </h1>
-                        <h3 className="text-lg  ml-3">{location.content}</h3>
+                        <h3 className="text-lg  ml-3"> {location.content}</h3>
                       </div>
                     )}
                   </div>
                   <div className="flex space-between flex-col">
                     {location.website && (
                       <div>
-                        <h1 className="font-bold mb-1 mt-2  ml-3">Website</h1>
+                        <h1 className="font-bold mb-1 mt-2  ml-3"><LanguageIcon/> Website</h1>
                         <h3 className="text-lg ml-3">{location.website}</h3>
                       </div>
                     )}
                   </div>
                 </div>
 
-                <div className="flex justify-center w-4/5 mb-2 mt-2">
+                <div className="flex mt-4">
                   {location.images && <Slider images={location.images} />}
                 </div>
               </div>
@@ -153,7 +160,7 @@ const FeaturedLocationGroup = ({ data }) => {
     <>  
         <h1 className="
         text-center  text-2xl font-bold mb-5 mt-5  ml-3     ">
-    {data.mainTitle}</h1>
+          <MyLocationIcon/>  {data.mainTitle} </h1>
       <FutureLocations />
     </>
   );

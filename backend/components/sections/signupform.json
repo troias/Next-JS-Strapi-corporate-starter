@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_signupforms",
+  "info": {
+    "name": "signupform",
+    "icon": "atom",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "password": {
+      "type": "password"
+    }
+  }
+}
