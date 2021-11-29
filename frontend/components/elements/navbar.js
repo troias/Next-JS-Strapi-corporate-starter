@@ -17,10 +17,11 @@ const Navbar = ({ navbar, pageContext }) => {
 
    console.log("user", user)
    console.log("navbar", navbar)
+   console.log("auth", navbar.auth)
  
   const router = useRouter()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
-
+  
   return (
     <>
       {/* The actual navbar */}
@@ -61,7 +62,42 @@ const Navbar = ({ navbar, pageContext }) => {
               <MdMenu className="h-8 w-auto" />
             </button>
             {/* CTA button on desktop */}
-            {navbar.button && user && (
+{/* 
+             {navbar.auth.authLinks.map((auth) => {
+
+              if (!user) {
+                return (
+                  <ButtonLink
+                    key={auth.id}
+                    appearance={getButtonAppearance(auth.type)}
+                    link={auth.url}
+                  >
+                    {auth.text}
+                 
+                  </ButtonLink>
+                )
+              }
+
+              return (
+                <>
+
+             { user ?  <Link href="/account" key={auth.id}>
+                  <ButtonLink
+                    appearance={getButtonAppearance(auth.type)}       
+                  >
+                    {auth.text}
+                  </ButtonLink>
+                </Link> : <ButtonLink key={auth.id} appearance={getButtonAppearance(auth.type)} link={auth.url}>  {auth.text}</ButtonLink>} 
+                </>
+              )
+           
+       
+            })}  */}
+            
+            
+            
+
+            {/* {navbar.button && user && (
               <div className="hidden md:block ">
                  
                 <ButtonLink
@@ -70,7 +106,9 @@ const Navbar = ({ navbar, pageContext }) => {
                   compact
                 />
               </div>
-            )}
+            )} */}
+
+
             {/* Locale Switch Desktop */}
             {/* {pageContext.localizedPaths && (
               <div className="hidden md:block">

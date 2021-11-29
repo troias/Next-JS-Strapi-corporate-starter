@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_links_auth_buttons",
+  "info": {
+    "name": "authButtons",
+    "icon": "angle-double-up",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "AuthBtn": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.button"
+    }
+  }
+}
