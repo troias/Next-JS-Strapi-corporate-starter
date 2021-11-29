@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import PropTypes from "prop-types"
 import Link from "next/link"
 import { useRouter } from "next/router"
-
+import AuthContext from "../../context/authContext"
 import { getButtonAppearance } from "utils/button"
 import { mediaPropTypes, linkPropTypes, buttonLinkPropTypes } from "utils/types"
 import { MdMenu } from "react-icons/md"
@@ -13,6 +13,11 @@ import CustomLink from "./custom-link"
 import LocaleSwitch from "../locale-switch"
 
 const Navbar = ({ navbar, pageContext }) => {
+   const {user} = useContext(AuthContext)
+
+   console.log("user", user)
+   console.log("navbar", navbar)
+ 
   const router = useRouter()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
 
@@ -43,11 +48,11 @@ const Navbar = ({ navbar, pageContext }) => {
           </div>
           <div className="flex">
             {/* Locale Switch Mobile */}
-            {pageContext.localizedPaths && (
+            {/* {pageContext.localizedPaths && (
               <div className="md:hidden">
                 <LocaleSwitch pageContext={pageContext} />
               </div>
-            )}
+            )} */}
             {/* Hamburger menu on mobile */}
             <button
               onClick={() => setMobileMenuIsShown(true)}
@@ -56,8 +61,9 @@ const Navbar = ({ navbar, pageContext }) => {
               <MdMenu className="h-8 w-auto" />
             </button>
             {/* CTA button on desktop */}
-            {navbar.button && (
+            {navbar.button && user && (
               <div className="hidden md:block ">
+                 
                 <ButtonLink
                   button={navbar.button}
                   appearance={getButtonAppearance(navbar.button.type, "light")}

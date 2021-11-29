@@ -5,6 +5,7 @@ import { useRouter } from "next/router"
 import { DefaultSeo } from "next-seo"
 import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
+import {AuthProvider} from "../context/authContext"
 import Layout from "@/components/layout"
 import "@/styles/index.css"
 
@@ -18,7 +19,7 @@ const MyApp = ({ Component, pageProps }) => {
   const { metadata } = global
 
   return (
-    <>
+    <AuthProvider>
       {/* Favicon */}
       <Head>
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon.url)} />
@@ -44,7 +45,7 @@ const MyApp = ({ Component, pageProps }) => {
       />
       {/* Display the content */}
       <Component {...pageProps} />
-    </>
+    </AuthProvider>
   )
 }
 
