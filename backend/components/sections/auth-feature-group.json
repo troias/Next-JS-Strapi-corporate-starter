@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_auth_feature_groups",
+  "info": {
+    "name": "authFeatureGroup",
+    "icon": "atlas",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "authBtns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.button-link"
+    }
+  }
+}

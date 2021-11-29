@@ -4,6 +4,19 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles({
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '50vh',
+        backgroundColor: '#fafafa',
+        width: '100%',
+    },
+  });
 
 const validationSchema = yup.object({
   email: yup
@@ -17,9 +30,9 @@ const validationSchema = yup.object({
 });
 
 const FeaturedSignUpPage = (props, { data }) => {
-  const { classes, theme } = props;
-  // console.log("theme", theme);
-  // console.log("classes", classes);
+    const classes = useStyles()
+    
+ 
   const formik = useFormik({
       initialValues: {
           email: '',
@@ -46,7 +59,7 @@ const FeaturedSignUpPage = (props, { data }) => {
       })
 
   return (
-      <div className={classes.container}>
+    <div className={classes.container}>
           <form onSubmit={formik.handleSubmit}>
               <TextField
                   fullWidth
@@ -69,7 +82,7 @@ const FeaturedSignUpPage = (props, { data }) => {
                   error={formik.touched.password && Boolean(formik.errors.password)}
                   helperText={formik.touched.password && formik.errors.password}
               />
-              <Button color="primary" variant="contained" fullWidth type="submit">
+              <Button color="primary" variant="contained" fullWidth type="submit" >
                   Submit
               </Button>
           </form>

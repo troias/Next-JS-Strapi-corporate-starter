@@ -4,28 +4,19 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles({
     container: {
         display: 'flex',
-        flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'center',
         justifyContent: 'center',
-        marginTop: theme.spacing.unit * 3,
-        marginBottom: theme.spacing.unit * 3,
+        height: '50vh',
+        backgroundColor: '#fafafa',
+        width: '100%',
     },
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: 200,
-    },
-    menu: {
-        width: 200,
-    },
-
-
-
-});
+  });
 
 const validationSchema = yup.object({
     email: yup
@@ -39,9 +30,9 @@ const validationSchema = yup.object({
 });
 
 const FeaturedLoginPage = (props, { data }) => {
-    const { classes, theme } = props;
-    // console.log("theme", theme);
-    // console.log("classes", classes);
+    const classes = useStyles()
+
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -60,7 +51,7 @@ const FeaturedLoginPage = (props, { data }) => {
                     headers: { 'Content-Type': 'application/json' }
                 });
                 const req = await response
-                console.log('response', req);
+              
             } catch (error) {
                 console.log('error', error);
             }
@@ -91,7 +82,7 @@ const FeaturedLoginPage = (props, { data }) => {
                     error={formik.touched.password && Boolean(formik.errors.password)}
                     helperText={formik.touched.password && formik.errors.password}
                 />
-                <Button color="primary" variant="contained" fullWidth type="submit">
+                <Button color="primary" variant="contained" fullWidth  type="submit"  > 
                     Submit
                 </Button>
             </form>
@@ -102,4 +93,4 @@ const FeaturedLoginPage = (props, { data }) => {
 
 
 
-export default withStyles(styles, { withTheme: true })(FeaturedLoginPage);
+export default FeaturedLoginPage

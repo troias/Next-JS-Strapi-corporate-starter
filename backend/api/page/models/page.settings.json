@@ -59,7 +59,8 @@
         "sections.featured-email-contact-group",
         "sections.email-contact-form",
         "sections.login-form",
-        "sections.signupform"
+        "sections.signupform",
+        "sections.auth-feature-group"
       ],
       "pluginOptions": {
         "i18n": {

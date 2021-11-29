@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import PropTypes from "prop-types"
 import Link from "next/link"
 import { useRouter } from "next/router"
@@ -13,15 +13,23 @@ import CustomLink from "./custom-link"
 import LocaleSwitch from "../locale-switch"
 
 const Navbar = ({ navbar, pageContext }) => {
-   const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
-   console.log("user", user)
-   console.log("navbar", navbar)
-   console.log("auth", navbar.auth)
- 
+
+
   const router = useRouter()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
-  
+  let loginButton
+  let signupButton
+  let logoutButton
+
+  loginButton = navbar.auth.authLinks.find(button => button.text === "Login")
+  signupButton = navbar.auth.authLinks.find(button => button.text === "Signup")
+  logoutButton = navbar.auth.authLinks.find(button => button.text === "Logout")
+
+
+
+
   return (
     <>
       {/* The actual navbar */}
@@ -57,56 +65,62 @@ const Navbar = ({ navbar, pageContext }) => {
             {/* Hamburger menu on mobile */}
             <button
               onClick={() => setMobileMenuIsShown(true)}
-              className="p-1 block md:hidden"
+              className="p-1 block lg:hidden"
             >
               <MdMenu className="h-8 w-auto" />
             </button>
             {/* CTA button on desktop */}
-{/* 
-             {navbar.auth.authLinks.map((auth) => {
 
-              if (!user) {
-                return (
+         
+
+            {user && user.isLoggedIn && (
+              <>
+              <ButtonLink
+                appearance={getButtonAppearance(logoutButton)}
+                button={logoutButton}
+                locale={router.locale}
+                onClick={() => {
+                
+                  router.push("/logout")
+                }}
+              />
+              </>
+            )}
+
+            {!user && (
+              < div className="hidden lg:flex">
+                <div className=" sm:mr-2 ml-2 ">
                   <ButtonLink
-                    key={auth.id}
-                    appearance={getButtonAppearance(auth.type)}
-                    link={auth.url}
-                  >
-                    {auth.text}
-                 
-                  </ButtonLink>
-                )
-              }
+                    appearance={getButtonAppearance(loginButton)}
+                    button={loginButton}
+                    locale={router.locale}
+                    onClick={() => {
+                      
+                      router.push("/login")
+                    }}
 
-              return (
-                <>
-
-             { user ?  <Link href="/account" key={auth.id}>
+                  />
+                </div>
+                <div className="sm:mr-2">
                   <ButtonLink
-                    appearance={getButtonAppearance(auth.type)}       
-                  >
-                    {auth.text}
-                  </ButtonLink>
-                </Link> : <ButtonLink key={auth.id} appearance={getButtonAppearance(auth.type)} link={auth.url}>  {auth.text}</ButtonLink>} 
-                </>
-              )
-           
-       
-            })}  */}
-            
-            
-            
-
-            {/* {navbar.button && user && (
-              <div className="hidden md:block ">
-                 
-                <ButtonLink
-                  button={navbar.button}
-                  appearance={getButtonAppearance(navbar.button.type, "light")}
-                  compact
-                />
+                    appearance={getButtonAppearance(signupButton)}
+                    button={signupButton}
+                    locale={router.locale}
+                    onClick={() => {
+                   
+                      router.push("/signup")
+                    }}
+                  />
+                </div>
               </div>
-            )} */}
+            )}
+
+
+
+
+
+
+
 
 
             {/* Locale Switch Desktop */}

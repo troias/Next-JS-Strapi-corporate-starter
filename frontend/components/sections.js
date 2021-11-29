@@ -17,6 +17,7 @@ import FeaturedEmailContactGroup from "@/components/sections/featured-email-cont
 import FeaturedLoginPage from "@/components/sections/featured-login-page"
 import FeaturedSignUpPage from "@/components/sections/featured-sign-up-page"
 import EmailContactForm from "@/components/sections/email-contact-form"
+import featuredAccountPage from "@/components/sections/featured-account-page"
 import RichText from "./sections/rich-text"
 import Pricing from "./sections/pricing"
 import LeadForm from "./sections/lead-form"
@@ -44,6 +45,7 @@ const sectionComponents = {
   "sections.email-contact-form": EmailContactForm,
   "sections.login-form": FeaturedLoginPage,
   "sections.signupform": FeaturedSignUpPage,
+  "sections.auth-feature-group": featuredAccountPage,
   
 }
 
