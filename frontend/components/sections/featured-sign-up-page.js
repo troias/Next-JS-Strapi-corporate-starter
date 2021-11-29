@@ -29,7 +29,7 @@ const validationSchema = yup.object({
       .required('Password is required'),
 });
 
-const FeaturedSignUpPage = (props, { data }) => {
+const FeaturedSignUpPage = ({ data }) => {
     const classes = useStyles()
     
  
@@ -60,6 +60,11 @@ const FeaturedSignUpPage = (props, { data }) => {
 
   return (
     <div className={classes.container}>
+         <h1 className=" font-bold
+                text-2xl
+                text-center
+                text-gray-800
+                mb-4">{data.title}</h1> 
           <form onSubmit={formik.handleSubmit}>
               <TextField
                   fullWidth

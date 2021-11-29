@@ -12,6 +12,9 @@
     },
     "password": {
       "type": "password"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

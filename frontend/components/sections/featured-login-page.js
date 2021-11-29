@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { fetchAPI } from "../../utils/api"
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@mui/styles';
+import AuthContext from '../../context/authContext'
 
 const useStyles = makeStyles({
     container: {
@@ -29,10 +30,11 @@ const validationSchema = yup.object({
         .required('Password is required'),
 });
 
-const FeaturedLoginPage = (props, { data }) => {
+const FeaturedLoginPage = ({ data }) => {
     const classes = useStyles()
+    const {loginUser, error, success, user, test } = useContext(AuthContext)
 
-
+    console.log("user", user)
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -40,26 +42,26 @@ const FeaturedLoginPage = (props, { data }) => {
         },
         validationSchema: validationSchema,
         onSubmit: async ({email, password}) => {
-            alert(JSON.stringify(email, null, 2));
+         
             try {
-                const response = await fetchAPI('/auth/local', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        identifier: email,
-                        password: password,
-                    }),
-                    headers: { 'Content-Type': 'application/json' }
-                });
-                const req = await response
-              
+                const req = await loginUser(email, password)
+                console.log("req", req)
             } catch (error) {
                 console.log('error', error);
             }
         },
         })
-
+        
     return (
         <div className={classes.container}>
+             <h1 className="
+              font-bold
+                text-2xl
+                text-center
+                text-gray-800
+                mb-4
+                
+             " >{data.title}</h1> 
             <form onSubmit={formik.handleSubmit}>
                 <TextField
                     fullWidth

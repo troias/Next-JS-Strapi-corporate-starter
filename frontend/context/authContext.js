@@ -20,7 +20,12 @@ export const AuthProvider = (props) => {
     return;
   };
 
+  const test = () => {
+    console.log("test");
+  }
   const logOutUser = () => {
+    localStorage.removeItem("token");
+    
     setUser(null);
     setLoggedIn(false)
     router.push("/");
@@ -29,7 +34,7 @@ export const AuthProvider = (props) => {
 
   const registerUser = async (email, password) => {
     try {
-      const response = await fetch(`${API_URL}/auth/local/register`, {
+      const response = await fetchAPI(`/auth/local/register`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -56,17 +61,16 @@ export const AuthProvider = (props) => {
 
   const loginUser = async (email, password) => {
     try {
-      const response = await fetch(`${API_URL}/auth/local`, {
+      console.log("email", email, password)
+      const response = await fetchAPI(`/auth/local`, {
         method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
         body: JSON.stringify({
           identifier: email,
           password,
         }),
       });
-      const data = await response.json();
+      const data = await response
+      console.log("data", data);
       if (data.message) {
         setError(data.message[0].messages[0].message);
         return;
@@ -74,7 +78,9 @@ export const AuthProvider = (props) => {
       console.log("login", data)
       setUser(data);
       setLoggedIn(true);
+      localStorage.setItem("user", JSON.stringify(data));
       router.push("/");
+      return data;
   
     } catch (error) {
       setError("something went wrong" + error);
@@ -104,6 +110,7 @@ export const AuthProvider = (props) => {
         getAuthUserName,
         checkIsLoggedIn,
         registerUser,
+        test
       }}
     >
       {props.children}

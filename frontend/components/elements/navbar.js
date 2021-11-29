@@ -13,21 +13,31 @@ import CustomLink from "./custom-link"
 import LocaleSwitch from "../locale-switch"
 
 const Navbar = ({ navbar, pageContext }) => {
-  const { user } = useContext(AuthContext)
+  const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
 
+  console.log("isLoggedIn", isLoggedIn)
+  // const [isLoggedIn, setIsLoggedIn] = useState(false)
+  
 
-
+  console.log("user", user)
   const router = useRouter()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
-  let loginButton
-  let signupButton
-  let logoutButton
 
-  loginButton = navbar.auth.authLinks.find(button => button.text === "Login")
-  signupButton = navbar.auth.authLinks.find(button => button.text === "Signup")
+
+ let loginButton;
+  let signupButton;
+  let logoutButton;
+ 
+
   logoutButton = navbar.auth.authLinks.find(button => button.text === "Logout")
+  loginButton = navbar.auth.authLinks.find((button) => button.text === "Login");
+  signupButton = navbar.auth.authLinks.find((button) => button.text === "Signup");
 
-
+  // useEffect(() => {
+  //   if (!user) {
+  //     setIsLoggedIn(false)
+  //   }
+  // }, [user])
 
 
   return (
@@ -73,21 +83,20 @@ const Navbar = ({ navbar, pageContext }) => {
 
          
 
-            {user && user.isLoggedIn && (
+            {/* {user &&  (
               <>
               <ButtonLink
                 appearance={getButtonAppearance(logoutButton)}
                 button={logoutButton}
                 locale={router.locale}
                 onClick={() => {
-                
-                  router.push("/logout")
+                  logOutUser()
                 }}
               />
               </>
-            )}
+            )} */}
 
-            {!user && (
+            {/* {!user && (
               < div className="hidden lg:flex">
                 <div className=" sm:mr-2 ml-2 ">
                   <ButtonLink
@@ -113,7 +122,7 @@ const Navbar = ({ navbar, pageContext }) => {
                   />
                 </div>
               </div>
-            )}
+            )} */}
 
 
 

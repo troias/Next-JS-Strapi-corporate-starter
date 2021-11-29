@@ -24,7 +24,7 @@ const featuredAccountPage = ({ data }) => {
             <div className="flex justify-center mt-10 mb-10">
             
             {!user && (
-              < div className="lg:flex">
+              < div className="flex">
                 <div className=" sm:mr-2 ml-2 ">
                   <ButtonLink
                     appearance={getButtonAppearance(loginButton)}
