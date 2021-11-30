@@ -31,6 +31,7 @@ const validationSchema = yup.object({
 });
 
 const FeaturedLoginPage = ({ data }) => {
+    console.log("data", data)
     const classes = useStyles()
     const {loginUser, error, success, user, test } = useContext(AuthContext)
 
@@ -51,7 +52,7 @@ const FeaturedLoginPage = ({ data }) => {
             }
         },
         })
-        
+       
     return (
         <div className={classes.container}>
              <h1 className="
@@ -85,7 +86,7 @@ const FeaturedLoginPage = ({ data }) => {
                     helperText={formik.touched.password && formik.errors.password}
                 />
                 <Button color="primary" variant="contained" fullWidth  type="submit"  > 
-                    Submit
+                     {data.title} 
                 </Button>
             </form>
         </div>

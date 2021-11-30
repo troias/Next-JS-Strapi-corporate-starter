@@ -24,11 +24,10 @@ export const AuthProvider = (props) => {
     console.log("test");
   }
   const logOutUser = () => {
-    localStorage.removeItem("token");
-    
+    localStorage.removeItem("user");
     setUser(null);
     setLoggedIn(false)
-    router.push("/");
+    // router.push("/");
     
   };
 

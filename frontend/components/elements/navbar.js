@@ -7,37 +7,111 @@ import { getButtonAppearance } from "utils/button"
 import { mediaPropTypes, linkPropTypes, buttonLinkPropTypes } from "utils/types"
 import { MdMenu } from "react-icons/md"
 import MobileNavMenu from "./mobile-nav-menu"
+import Button from "./button"
 import ButtonLink from "./button-link"
 import NextImage from "./image"
 import CustomLink from "./custom-link"
 import LocaleSwitch from "../locale-switch"
 
 const Navbar = ({ navbar, pageContext }) => {
-  const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
+  const { user, logOutUser, checkIsLoggedIn } = useContext(AuthContext)
 
-  console.log("isLoggedIn", isLoggedIn)
-  // const [isLoggedIn, setIsLoggedIn] = useState(false)
-  
+  useEffect(() => {
+    const inLocalStorage = localStorage.getItem("user")
+    if (inLocalStorage) {
+      const loggedIn = checkIsLoggedIn()
+      if (!loggedIn) {
+        logOutUser()
+      }
+    }
+  }, [])
+ 
+  const logOut = () => {
+    logOutUser()
+   localStorage.removeItem("user") 
+   console.log("userLogOutfunc", user)
+  }
 
-  console.log("user", user)
+  console.log("userContext", user)
+  console.log("checkIsLoggedIn", checkIsLoggedIn())
   const router = useRouter()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
 
 
- let loginButton;
+  let loginButton;
   let signupButton;
   let logoutButton;
- 
+
 
   logoutButton = navbar.auth.authLinks.find(button => button.text === "Logout")
   loginButton = navbar.auth.authLinks.find((button) => button.text === "Login");
   signupButton = navbar.auth.authLinks.find((button) => button.text === "Signup");
 
-  // useEffect(() => {
-  //   if (!user) {
-  //     setIsLoggedIn(false)
-  //   }
-  // }, [user])
+  console.log("logoutButton", logoutButton)
+  
+  const isLoggedIn = checkIsLoggedIn()
+
+  // isLoggedIn ? (loginButton = null) : (signupButton = null)
+
+  let authButtons
+
+  if ( user && isLoggedIn && logoutButton) {
+
+    console.log("userLogOutfunc", user)
+    console.log("isLoggedIn", isLoggedIn)
+ 
+
+    authButtons = (   < div className="hidden lg:flex">
+      <Button
+      button={logoutButton}
+        appearance={getButtonAppearance("secondary", "light")}
+        handleClick={logOut}
+      />
+     
+    </div>)
+
+      {/* <button onClick={() => {
+        logOutUser()
+      
+        localStorage.removeItem("user")
+
+      }
+      }>Logout</button> */}
+  
+    
+  }
+ 
+
+
+  
+  if (!user && !checkIsLoggedIn()) {
+    authButtons =  < div className="hidden lg:flex">
+      <div className=" sm:mr-2 ml-2 ">
+        <ButtonLink
+          appearance={getButtonAppearance(loginButton)}
+          button={loginButton}
+          locale={router.locale}
+          onClick={() => {
+
+            router.push("/login")
+          }}
+
+        />
+      </div>
+      <div className="sm:mr-2">
+        <ButtonLink
+          appearance={getButtonAppearance(signupButton)}
+          button={signupButton}
+          locale={router.locale}
+          onClick={() => {
+
+            router.push("/signup")
+          }}
+        />
+      </div>
+    </div>
+  }
+
 
 
   return (
@@ -80,58 +154,7 @@ const Navbar = ({ navbar, pageContext }) => {
               <MdMenu className="h-8 w-auto" />
             </button>
             {/* CTA button on desktop */}
-
-         
-
-            {/* {user &&  (
-              <>
-              <ButtonLink
-                appearance={getButtonAppearance(logoutButton)}
-                button={logoutButton}
-                locale={router.locale}
-                onClick={() => {
-                  logOutUser()
-                }}
-              />
-              </>
-            )} */}
-
-            {/* {!user && (
-              < div className="hidden lg:flex">
-                <div className=" sm:mr-2 ml-2 ">
-                  <ButtonLink
-                    appearance={getButtonAppearance(loginButton)}
-                    button={loginButton}
-                    locale={router.locale}
-                    onClick={() => {
-                      
-                      router.push("/login")
-                    }}
-
-                  />
-                </div>
-                <div className="sm:mr-2">
-                  <ButtonLink
-                    appearance={getButtonAppearance(signupButton)}
-                    button={signupButton}
-                    locale={router.locale}
-                    onClick={() => {
-                   
-                      router.push("/signup")
-                    }}
-                  />
-                </div>
-              </div>
-            )} */}
-
-
-
-
-
-
-
-
-
+            {authButtons}
             {/* Locale Switch Desktop */}
             {/* {pageContext.localizedPaths && (
               <div className="hidden md:block">

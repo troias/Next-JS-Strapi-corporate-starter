@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import AuthContext from '../../context/authContext'
 import { fetchAPI } from "utils/api";
 import dynamic from 'next/dynamic'
 import * as yup from "yup";
@@ -18,7 +19,9 @@ const EmailContactForm = ({ data }) => {
   console.log("EmailContactForm", data);
   const [loading, setLoading] = useState(false);
   const [reqStatus, setReqstatus] = useState();
+  const {user} = useContext(AuthContext)
 
+  console.log("user", user)
 
   const LeadSchema = yup.object().shape({
     email: yup.string().email().required(),
@@ -90,23 +93,32 @@ const EmailContactForm = ({ data }) => {
           validationSchema={LeadSchema}
           onSubmit={async (values, { setSubmitting, setErrors }) => {
             setLoading(true);
-
-            try {
-              setErrors({ api: null });
-              setSubmitting(true);
-              setReqstatus("pending");
-              await fetchAPI("/lead-form-submissions", {
-                method: "POST",
-                body: JSON.stringify({
-                  email: values.email,
-                }),
-              });
-
-              setReqstatus("success");
-            } catch (err) {
-              setErrors({ api: err.message });
-              setReqstatus("error");
+            const userInLocalStorage = await localStorage.getItem("user");
+            console.log("user", user)
+            if (!userInLocalStorage && !user) {
+              setLoading(false);
+              setErrors({ authStatus: "Please login to send message" });
+              return;
             }
+             try {
+               setErrors({ api: null });
+              setSubmitting(true);
+               setReqstatus("pending");
+             await fetchAPI("/lead-form-submissions", {
+                 method: "POST",
+                 body: JSON.stringify({
+                  email: values.email,
+               }),
+               headers: {
+                'Authorization': `Bearer ${user.jwt}`
+               },
+               });
+
+               setReqstatus("success");
+             } catch (err) {
+               setErrors({ api: err.message });
+               setReqstatus("error");
+             }
 
             setLoading(false);
             setSubmitting(false);
@@ -178,6 +190,7 @@ const EmailContactForm = ({ data }) => {
                 <p> {(errors.mobile && touched.mobile && errors.mobile) || errors.api} </p>
                 <p> {(errors.name && touched.name && errors.name) || errors.api}   </p>
                 <p>  {(errors.message && touched.message && errors.message) || errors.api}  </p>
+                <p>  {errors.authStatus}  </p>
                   </div>
             </div>
           )}
