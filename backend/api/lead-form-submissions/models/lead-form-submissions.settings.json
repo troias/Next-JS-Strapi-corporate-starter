@@ -24,6 +24,17 @@
     },
     "location": {
       "type": "string"
+    },
+    "number": {
+      "type": "integer"
+    },
+    "message": {
+      "type": "richtext"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "lead_form_submissions"
     }
   }
 }

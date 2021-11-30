@@ -16,12 +16,12 @@ const Notification = dynamic(
 )
 
 const EmailContactForm = ({ data }) => {
-  console.log("EmailContactForm", data);
+
   const [loading, setLoading] = useState(false);
   const [reqStatus, setReqstatus] = useState();
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
-  console.log("user", user)
+
 
   const LeadSchema = yup.object().shape({
     email: yup.string().email().required(),
@@ -89,36 +89,58 @@ const EmailContactForm = ({ data }) => {
       )}
       <div className="flex flex-col items-center">
         <Formik
-          initialValues={{ email: "" }}
+          initialValues={{
+            email: "",
+             mobile: "", 
+             name: "", 
+             message: ""
+          }}
           validationSchema={LeadSchema}
           onSubmit={async (values, { setSubmitting, setErrors }) => {
+
             setLoading(true);
             const userInLocalStorage = await localStorage.getItem("user");
-            console.log("user", user)
+
             if (!userInLocalStorage && !user) {
               setLoading(false);
               setErrors({ authStatus: "Please login to send message" });
               return;
             }
-             try {
-               setErrors({ api: null });
+            try {
+              setErrors({ api: null });
               setSubmitting(true);
-               setReqstatus("pending");
-             await fetchAPI("/lead-form-submissions", {
-                 method: "POST",
-                 body: JSON.stringify({
-                  email: values.email,
-               }),
-               headers: {
-                'Authorization': `Bearer ${user.jwt}`
-               },
-               });
+              setReqstatus("pending");
+            
+              const userId = user.user.id
+            
+              const mobile = values.mobile.replace(/\D/g, '')
+           
+              const req = await fetchAPI("/lead-form-submissions", {
+                method: "POST",
 
-               setReqstatus("success");
-             } catch (err) {
-               setErrors({ api: err.message });
-               setReqstatus("error");
-             }
+                headers: {
+                  'Authorization': `Bearer ${user.jwt}`,
+                  'Content-Type': 'application/json',
+                },
+
+                body: JSON.stringify({
+                  email: values.email,
+                  number: mobile,
+                  name: values.name,
+                  message: values.message,
+                  user: userId
+                }),
+
+
+              });
+              const res = await req
+            
+
+              setReqstatus("success");
+            } catch (err) {
+              setErrors({ api: err.message });
+              setReqstatus("error");
+            }
 
             setLoading(false);
             setSubmitting(false);
@@ -126,7 +148,7 @@ const EmailContactForm = ({ data }) => {
         >
           {({ errors, touched, isSubmitting }) => (
             <div>
-              {console.log("errors", errors)}
+           
               {isSubmitting && <Loader />}
 
               <Form className="flex flex-col gap-4">
@@ -191,7 +213,7 @@ const EmailContactForm = ({ data }) => {
                 <p> {(errors.name && touched.name && errors.name) || errors.api}   </p>
                 <p>  {(errors.message && touched.message && errors.message) || errors.api}  </p>
                 <p>  {errors.authStatus}  </p>
-                  </div>
+              </div>
             </div>
           )}
         </Formik>
