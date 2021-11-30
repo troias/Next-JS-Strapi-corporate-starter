@@ -1,9 +1,12 @@
 
 import NextImage from "../elements/image"
 import Markdown from "react-markdown"
+import Link from 'next/link'
 
 const FeatureContactGroup = ({ data }) => {
     // console.log("featureContactGroup", data)
+
+   
 
     return (
 
@@ -32,6 +35,7 @@ const FeatureContactGroup = ({ data }) => {
             </div>
             <div className="mb-10">
                 {data.socialCard.map((socialCard, i) => {
+                     console.log("data.socialCard", socialCard)
 
                     let socialBgColor
                     if (i === 0) {
@@ -46,15 +50,17 @@ const FeatureContactGroup = ({ data }) => {
                    
 
                     return (
-                        <div className="container flex mb-1">
-                            <div className="w-10 h-10 mr-2 ">
+                        <div className="container flex mb-1   hover:cursor-pointer active:cursor-pointer  ">
+                            <div className="w-10 h-10 mr-2  ">
                                 <NextImage media={socialCard.socialIcon} />
                             </div>
-                            <div style={{
+                            <Link href={socialCard.url}> 
+                            <div   style={{
                                 backgroundColor: socialBgColor
                             }} className="container flex w-full mb-1  items-center justify-center rounded shadow opacity-90">
                                 <Markdown className="mb-2 text-white">{socialCard.socialContent}</Markdown>
                             </div>
+                             </Link> 
                         </div>
                     )
                 })}

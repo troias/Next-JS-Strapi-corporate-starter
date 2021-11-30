@@ -31,7 +31,7 @@ const FeaturedPriceGroup = ({ data }) => {
 
 
                             </div>
-                            <div className="">
+                            <div className="justify-center w-1/2 mt-2">
                                 <h2 className="font-bold mb-2">  {product.priceTitle}</h2>
                                 {product.productSize.map((productSize) => {
                                     return (
