@@ -1,10 +1,10 @@
-import Markdown from "react-markdown"
-import { getButtonAppearance } from "utils/button"
-import ButtonLink from "../elements/button-link"
-import NextImage from "../elements/image"
+import Markdown from "react-markdown";
+import { getButtonAppearance } from "utils/button";
+import ButtonLink from "../elements/button-link";
+import NextImage from "../elements/image";
 
 const Hero = ({ data }) => {
-  // console.log(data.buttons)
+ 
   return (
     <main className="container flex flex-col md:flex-row items-center justify-between py-12">
       {/* Left column for content */}
@@ -35,7 +35,7 @@ const Hero = ({ data }) => {
         <NextImage media={data.picture} />
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

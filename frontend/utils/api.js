@@ -6,7 +6,7 @@ export function getStrapiURL(path) {
 
 // Helper to make GET requests to Strapi
 export async function fetchAPI(path, options = {}) {
-  console.log("ya")
+
   const defaultOptions = {
     headers: {
       'Content-Type': 'application/json',

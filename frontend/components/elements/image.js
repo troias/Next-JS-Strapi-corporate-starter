@@ -32,7 +32,7 @@ const NextImage = ({ media, ...props }) => {
 };
 
 Image.propTypes = {
-  media: mediaPropTypes.isRequired,
+  media: mediaPropTypes, // eslint-disable-line react/forbid-prop-types,
   className: PropTypes.string,
 };
 

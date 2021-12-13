@@ -1,14 +1,13 @@
-import classNames from "classnames"
-import { useState } from "react"
-import NextImage from "../elements/image"
-import CustomLink from "../elements/custom-link"
+import classNames from "classnames";
+import { useState } from "react";
+import NextImage from "../elements/image";
+import CustomLink from "../elements/custom-link";
 
 const TestimonialsGroup = ({ data }) => {
   // Only show one testimonial at a time
-  const [selectedTestimonialIndex, setSelectedTestimonialIndex] = useState(0)
-  const selectedTestimonial = data.testimonials[selectedTestimonialIndex]
-
-  // console.log("selectedTestimonial", selectedTestimonial)
+  const [selectedTestimonialIndex, setSelectedTestimonialIndex] = useState(0);
+  const selectedTestimonial = data.testimonials[selectedTestimonialIndex];
+  
 
   return (
     <section className="text-center text-lg bg-gray-200 pt-12 pb-16">
@@ -26,11 +25,6 @@ const TestimonialsGroup = ({ data }) => {
         </div>
         <div className="px-4 py-4 sm:px-12 sm:pt-12 sm:pb-4 md:f flex flex-col justify-between">
           <div>
-            {/* <NextImage
-              width="120"
-              height="33"
-              media={selectedTestimonial.logo}
-            /> */}
             <p className="italic mb-6">
               &quot;{selectedTestimonial.text}&quot;
             </p>
@@ -75,13 +69,8 @@ const TestimonialsGroup = ({ data }) => {
         </div>
       )}
       {/* Logos list */}
-      {/* <div className="flex flex-row flex-wrap items-center gap-6 sm:gap-20 justify-center mt-10 px-6 sm:px-0 ">
-        {data.logos.map((logo) => (
-          <NextImage key={logo.id} width="120" height="33" media={logo.logo} />
-        ))}
-      </div> */}
     </section>
-  )
-}
+  );
+};
 
-export default TestimonialsGroup
+export default TestimonialsGroup;

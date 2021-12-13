@@ -1,14 +1,9 @@
-import classNames from "classnames"
-import NextImage from "../elements/image"
-import Video from "../elements/video"
-import CustomLink from "../elements/custom-link"
+import classNames from "classnames";
+import NextImage from "../elements/image";
+import Video from "../elements/video";
+import CustomLink from "../elements/custom-link";
 
 const FeatureRowsGroup = ({ data }) => {
-//   if (online()) {
-//     setSharingLocation(true);
-// } else {
-//     setSharingLocation(false);
-// }
   return (
     <div className="container flex flex-col gap-12 py-12">
       {data.features.map((feature, index) => (
@@ -54,9 +49,7 @@ const FeatureRowsGroup = ({ data }) => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default FeatureRowsGroup
-
-
+export default FeatureRowsGroup;

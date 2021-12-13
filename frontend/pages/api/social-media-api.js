@@ -1,5 +1,7 @@
 import Instagram from "instagram-web-api";
 
+
+
 const handler = async (req, res) => {
 
   if (req.method === "GET") {
@@ -10,7 +12,7 @@ const handler = async (req, res) => {
         password: process.env.NEXT_PUBLIC_INSTAGRAM_PASSWORD,
       });
 
-      console.log("client", client);
+     
 
       try {
         await client.login();
@@ -26,7 +28,7 @@ const handler = async (req, res) => {
           username: "little_cherry_coffee",
           first: 6,
         });
-        console.log("socialPostApiResponse", response);
+       
 
         
 

@@ -1,11 +1,5 @@
+const FeaturedEmailContactGroup = () => {
+  return <div></div>;
+};
 
-
- const FeaturedEmailContactGroup = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-export default FeaturedEmailContactGroup
+export default FeaturedEmailContactGroup;

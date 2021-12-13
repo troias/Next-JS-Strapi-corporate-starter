@@ -1,5 +1,5 @@
-import { MdCheckBox } from "react-icons/md"
-import classNames from "classnames"
+import { MdCheckBox } from "react-icons/md";
+import classNames from "classnames";
 
 const Pricing = ({ data }) => {
   return (
@@ -52,7 +52,7 @@ const Pricing = ({ data }) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Pricing
+export default Pricing;

@@ -1,7 +1,7 @@
-import classNames from "classnames"
-import PropTypes from "prop-types"
-import { buttonLinkPropTypes } from "utils/types"
-import CustomLink from "./custom-link"
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import { buttonLinkPropTypes } from "utils/types";
+import CustomLink from "./custom-link";
 
 const ButtonContent = ({ button, appearance, compact, onClick }) => {
   return (
@@ -34,12 +34,12 @@ const ButtonContent = ({ button, appearance, compact, onClick }) => {
           "text-white border-white": appearance === "white-outline",
         }
       )}
-     onClick={onClick}
+      onClick={onClick}
     >
       {button.text}
     </div>
-  )
-}
+  );
+};
 
 const ButtonLink = ({ button, appearance, compact = false }) => {
   return (
@@ -50,8 +50,8 @@ const ButtonLink = ({ button, appearance, compact = false }) => {
         compact={compact}
       />
     </CustomLink>
-  )
-}
+  );
+};
 
 ButtonLink.propTypes = {
   button: buttonLinkPropTypes,
@@ -62,6 +62,6 @@ ButtonLink.propTypes = {
     "dark-outline",
   ]),
   compact: PropTypes.bool,
-}
+};
 
-export default ButtonLink
+export default ButtonLink;
