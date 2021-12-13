@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import { linkPropTypes, mediaPropTypes } from "utils/types";
-import NextImage from "./image";
-import CustomLink from "./custom-link";
+import PropTypes from "prop-types"
+import { linkPropTypes, mediaPropTypes } from "utils/types"
+import NextImage from "./image"
+import CustomLink from "./custom-link"
 
 const Footer = ({ footer }) => {
   return (
@@ -39,8 +39,8 @@ const Footer = ({ footer }) => {
         <div className="container">{footer.smallText}</div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
 Footer.propTypes = {
   footer: PropTypes.shape({
@@ -55,6 +55,6 @@ Footer.propTypes = {
     ),
     smallText: PropTypes.string.isRequired,
   }),
-};
+}
 
-export default Footer;
+export default Footer

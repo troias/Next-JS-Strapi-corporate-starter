@@ -1,7 +1,7 @@
-import classNames from "classnames";
-import PropTypes from "prop-types";
-import { buttonLinkPropTypes } from "utils/types";
-import Loader from "./loader";
+import classNames from "classnames"
+import PropTypes from "prop-types"
+import { buttonLinkPropTypes } from "utils/types"
+import Loader from "./loader"
 
 const Button = ({
   button,
@@ -49,8 +49,8 @@ const Button = ({
         {button.text}
       </div>
     </button>
-  );
-};
+  )
+}
 
 Button.propTypes = {
   button: buttonLinkPropTypes,
@@ -61,6 +61,6 @@ Button.propTypes = {
     "dark-outline",
   ]),
   compact: PropTypes.bool,
-};
+}
 
-export default Button;
+export default Button

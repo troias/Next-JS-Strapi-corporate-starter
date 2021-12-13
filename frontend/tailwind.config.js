@@ -23,12 +23,9 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
     },
-    
   },
   variants: {
-    translate: ["responsive", "hover", "focus", "active", "group-hover"],
-    borderWidth: ["hover"],
-    textAlign: ["responsive"]
+    extend: {},
   },
   plugins: [require("@tailwindcss/typography")],
 }

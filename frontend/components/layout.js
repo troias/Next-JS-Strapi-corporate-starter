@@ -4,7 +4,7 @@ import Footer from "./elements/footer"
 import NotificationBanner from "./elements/notification-banner"
 
 const Layout = ({ children, global, pageContext }) => {
-  const { navbar, footer, notificationBanner } = global
+  const { navbar, footer, notificationBanner } = global.attributes
 
   const [bannerIsShown, setBannerIsShown] = useState(true)
   return (

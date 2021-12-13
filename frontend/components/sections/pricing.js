@@ -1,5 +1,5 @@
-import { MdCheckBox } from "react-icons/md";
-import classNames from "classnames";
+import { MdCheckBox } from "react-icons/md"
+import classNames from "classnames"
 
 const Pricing = ({ data }) => {
   return (
@@ -9,14 +9,14 @@ const Pricing = ({ data }) => {
         {data.plans.map((plan) => (
           <div
             className={classNames(
-              // Common classes
+         
               "rounded-md border-2 py-4 px-4 flex-1 md:w-lg",
-              // Normal plan
+        
               {
                 "bg-gray-100 text-gray-900 border-gray-300":
                   !plan.isRecommended,
               },
-              // Recommended plan
+          
               {
                 "bg-primary-100 text-primary-900 border-primary-300":
                   plan.isRecommended,
@@ -52,7 +52,7 @@ const Pricing = ({ data }) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Pricing;
+export default Pricing

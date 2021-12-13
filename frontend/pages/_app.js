@@ -1,41 +1,44 @@
-import App from "next/app";
-import Head from "next/head";
-import ErrorPage from "next/error";
-import { useRouter } from "next/router";
-import { DefaultSeo } from "next-seo";
-import { getStrapiMedia } from "utils/media";
-import { getGlobalData } from "utils/api";
-import { AuthProvider } from "../context/authContext";
-import Layout from "@/components/layout";
-import "@/styles/index.css";
+import App from "next/app"
+import Head from "next/head"
+import ErrorPage from "next/error"
+import { useRouter } from "next/router"
+import { DefaultSeo } from "next-seo"
+import { getStrapiMedia } from "utils/media"
+import { getGlobalData } from "utils/api"
+import "@/styles/index.css"
 
 const MyApp = ({ Component, pageProps }) => {
   // Extract the data we need
-  const { global } = pageProps;
+  const { global } = pageProps
   if (global == null) {
-    return <ErrorPage statusCode={404} />;
+    return <ErrorPage statusCode={404} />
   }
 
-  const { metadata } = global;
+  const { metadata, favicon, metaTitleSuffix } = global.attributes
 
   return (
-    <AuthProvider>
+    <>
       {/* Favicon */}
       <Head>
-        <link rel="shortcut icon" href={getStrapiMedia(global.favicon.url)} />
+        <link
+          rel="shortcut icon"
+          href={getStrapiMedia(favicon.data.attributes.url)}
+        />
       </Head>
       {/* Global site metadata */}
       <DefaultSeo
-        titleTemplate={`%s | ${global.metaTitleSuffix}`}
+        titleTemplate={`%s | ${metaTitleSuffix}`}
         title="Page"
         description={metadata.metaDescription}
         openGraph={{
-          images: Object.values(metadata.shareImage.formats).map((image) => {
+          images: Object.values(
+            metadata.shareImage.data.attributes.formats
+          ).map((image) => {
             return {
               url: getStrapiMedia(image.url),
               width: image.width,
               height: image.height,
-            };
+            }
           }),
         }}
         twitter={{
@@ -45,9 +48,9 @@ const MyApp = ({ Component, pageProps }) => {
       />
       {/* Display the content */}
       <Component {...pageProps} />
-    </AuthProvider>
-  );
-};
+    </>
+  )
+}
 
 // getInitialProps disables automatic static optimization for pages that don't
 // have getStaticProps. So [[...slug]] pages still get SSG.
@@ -55,16 +58,15 @@ const MyApp = ({ Component, pageProps }) => {
 // https://github.com/vercel/next.js/discussions/10949
 MyApp.getInitialProps = async (appContext) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(appContext);
-  const globalLocale = await getGlobalData(appContext.router.locale);
+  const appProps = await App.getInitialProps(appContext)
+  const globalLocale = await getGlobalData(appContext.router.locale)
 
-  
   return {
     ...appProps,
     pageProps: {
       global: globalLocale,
     },
-  };
-};
+  }
+}
 
-export default MyApp;
+export default MyApp

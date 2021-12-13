@@ -1,9 +1,9 @@
-import ButtonLink from "@/components/elements/button-link";
-import { getButtonAppearance } from "utils/button";
+import ButtonLink from "@/components/elements/button-link"
+import { getButtonAppearance } from "utils/button"
 
 const BottomActions = ({ data }) => {
   return (
-    <section className="bg-red-700 py-20 text-center">
+    <section className="bg-primary-800 py-20 text-center">
       <h2 className="title text-white mb-10">{data.title}</h2>
       {/* Buttons row */}
       <div className="container flex flex-row justify-center flex-wrap gap-4">
@@ -16,7 +16,7 @@ const BottomActions = ({ data }) => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default BottomActions;
+export default BottomActions
